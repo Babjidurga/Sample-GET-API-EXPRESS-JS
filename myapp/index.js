@@ -4,7 +4,10 @@ const { open } = require("sqlite");
 const sqlite3 = require("sqlite3");
 const path = require("path");
 const dbPath = path.join(__dirname, "goodreads.db");
+// pre initialization of db variable value with null
 let db = null;
+// Since the operation is asynchronous to make it synchronous we are using async and await.
+// To handle to exception we are using the try and catch methods
 const intializedbAndServer = async () => {
   try {
     db = await open({
